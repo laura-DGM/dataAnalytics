@@ -1,0 +1,224 @@
+// create a list of your 10 favorite movies. Collect the following information about
+// each movie from the IMDB website 
+//  Title
+//  Release year
+//  Genre
+//  Rating
+//  Duration 
+
+{
+  "intro_big_data": "assessment_1",
+  "movies": [
+      {
+      "title": "The Shawshank Redemption",
+      "year": 1994,
+      "runtime": 142,
+      "rating": 4,
+      "genre": "drama"
+      },
+      {
+      "title": "The Googfather",
+      "year": 1972,
+      "runtime": 175,
+      "rating": 8,
+      "genre": "drama"
+      },
+      {
+      "title": "The Googfather, Part II",
+      "year": 1974,
+      "runtime": 142,
+      "rating": 5,
+      "genre": "drama"
+      },
+
+      {
+      "title": "The Dark Knight",
+      "year": 2009,
+      "runtime": 152,
+      "rating": 3,
+      "genre": "action"
+      },
+
+      {
+      "title": "12 Angry Men",
+      "year": 1957,
+      "runtime": 155,
+      "rating": 2,
+      "genre": "drama"
+      },
+
+      {
+      "title": "Schindler's List",
+      "year": 1993,
+      "runtime": 195,
+      "rating": 9,
+      "genre": "drama"
+      },
+
+      {
+      "title": "The Lord of the Rings",
+      "year": 2003,
+      "runtime": 201,
+      "rating": 4,
+      "genre": "drama"
+      },
+
+      {
+      "title": "Pulp Fiction",
+      "year": 1994,
+      "runtime": 165,
+      "rating": 2,
+      "genre": "fiction"
+      },
+
+      {
+      "title": "The Lord of the Rings, The Fellowship of rhe Ring",
+      "year": 2001,
+      "runtime": 178,
+      "rating": 10,
+      "genre": "fantasy"
+      }
+      ]
+}
+
+// 1. Find a movie by title 
+$.movies[?(@.title=="The Shawshank Redemption")]
+
+[
+  {
+      "title": "The Shawshank Redemption",
+      "year": 1994,
+      "runtime": 142,
+      "rating": 4,
+      "genre": [
+          "drama"
+      ]
+  }
+]
+
+
+// 2. Find the titles of the movies released in a particular year
+$.movies[?(@.year==1994)]
+
+[
+  {
+      "title": "The Shawshank Redemption",
+      "year": 1994,
+      "runtime": 142,
+      "rating": 4,
+      "genre": [
+          "drama"
+      ]
+  },
+  {
+      "title": "Pulp Fiction",
+      "year": 1994,
+      "runtime": 165,
+      "rating": 2,
+      "genre": [
+          "fiction"
+      ]
+  }
+]
+
+// 3. Find all the movies with ratings higher than 7
+$.movies[?(@.rating>7)]
+
+[
+  {
+      "title": "The Googfather",
+      "year": 1972,
+      "runtime": 175,
+      "rating": 8,
+      "genre": [
+          "drama"
+      ]
+  },
+  {
+      "title": "Schindler's List",
+      "year": 1993,
+      "runtime": 195,
+      "rating": 9,
+      "genre": [
+          "drama"
+      ]
+  },
+  {
+      "title": "The Lord of the Rings, The Fellowship of rhe Ring",
+      "year": 2001,
+      "runtime": 178,
+      "rating": 10,
+      "genre": [
+          "fantasy"
+      ]
+  }
+]
+
+// 4. Find all the movies in a genre
+$.movies[?(@.genre=="drama")]
+
+[
+  {
+      "title": "The Shawshank Redemption",
+      "year": 1994,
+      "runtime": 142,
+      "rating": 4,
+      "genre": "drama"
+  },
+  {
+      "title": "The Googfather",
+      "year": 1972,
+      "runtime": 175,
+      "rating": 8,
+      "genre": "drama"
+  },
+  {
+      "title": "The Googfather, Part II",
+      "year": 1974,
+      "runtime": 142,
+      "rating": 5,
+      "genre": "drama"
+  },
+  {
+      "title": "12 Angry Men",
+      "year": 1957,
+      "runtime": 155,
+      "rating": 2,
+      "genre": "drama"
+  },
+  {
+      "title": "Schindler's List",
+      "year": 1993,
+      "runtime": 195,
+      "rating": 9,
+      "genre": "drama"
+  },
+  {
+      "title": "The Lord of the Rings",
+      "year": 2003,
+      "runtime": 201,
+      "rating": 4,
+      "genre": "drama"
+  }
+]
+
+
+// 5. Find all the movie titles in a genre with ratings greater than or equal to 7
+$.movies[?(@.genre=="drama" && @.rating>=7)]
+
+[
+  {
+      "title": "The Googfather",
+      "year": 1972,
+      "runtime": 175,
+      "rating": 8,
+      "genre": "drama"
+  },
+  {
+      "title": "Schindler's List",
+      "year": 1993,
+      "runtime": 195,
+      "rating": 9,
+      "genre": "drama"
+  }
+]
