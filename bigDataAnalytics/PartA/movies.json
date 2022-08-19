@@ -222,3 +222,10 @@ $.movies[?(@.genre=="drama" && @.rating>=7)]
       "genre": "drama"
   }
 ]
+
+db.IMDB.updateMany({title: "The Bargain"}, {$set:{genre: "Drama"}})
+db.IMDB.updateMany({title: "A Florida Enchantment"}, {$set:{genre: "Drama"}})
+
+
+db.collection.find({title: "The Bargain"})
+db.collection.find({title: "A Florida Enchantment"})
