@@ -123,14 +123,6 @@ ggplot(LATAM, aes(x=Strong_economy, y=`Internet penetration % population`,
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank())
 
-# los rojos (paises sobre la media del GDP) tiene datos mas omogenios 
-# el azul riene mucha dispersion muy pobres y muy ricos
-# 75% de esos paises tiene una penetracion de internet por encima del 70%
-
-#El bloxplot indica que los paises sobre el prom en PIB per capita tienen una dispersion mucho
-# mas alta en cuanto a los aportes de las economias al PIB del pais. 
-
-
 
 #
 ggplot(LATAM,aes(LATAM$`Internet penetration % population`,LATAM$`Creat Ind % GDP`))+
@@ -139,7 +131,7 @@ ggplot(LATAM,aes(LATAM$`Internet penetration % population`,LATAM$`Creat Ind % GD
        title='Internet and creative industries contribution according to economy and growth')
 
 
-#el tamano de la burbuja es el creciemiento que ha tenido el pais en su PIB en su ultimo ano 
+# the size of the bubble is the growth that the country has had in its GDP in its last year
 
 
 #
@@ -152,10 +144,10 @@ my_graph <- ggplot(LATAM,ase(LATAM$`Internet penetration % population`,LATAM$`Cr
 p = ggplotly(my_graph)
 p
 
-#Service % and GDP, podria existir una correlacion positiva = los que mas aportan a servicios son los que tienen un mayor pib per captia 
+#Service % and GDP, there could be a positive correlation = those who contribute the most to services are those with a higher GDP PC
 pairs(LATAM[,2:6])
 
-#nos damos cuenta que parece haber una relacion entre la median age y el gdp  
+#we realize that there seems to be a relationship between middle age and gdp  
 pairs(LATAM[,2:11],
       col = 'violetred1')
 
@@ -185,15 +177,15 @@ cor(LATAM[,2:6],use = 'complete.obs')
 desv <- sd(LATAM$`Creat Ind % GDP`,na.rm = TRUE)
 
 #check the standard deviation of the creaative industries
-#En promedio en paises de latino america las industrias creativas estan aportando el 3.29
+#On average in Latin American countries, the creative industries are contributing 3.29
 prom <- mean(LATAM$`Creat Ind % GDP`,na.rm = TRUE)
 
-# Hay una desiguldad enorme entre la participacion de las industrias creativas al PIB
-# los datos estan muy desviados del promedio 
+# There is a huge disparity between the share of creative industries in GDP
+# The data is very deviated from the average
 coefVar <- (desv/prom)*100
 coefVar
 
-#create a new variable with a new tag
+# create a new variable with a new tag
 LATAM <- LATAM %>%
   mutate(Grow_GDP = ifelse(LATAM$`GDP Growth %`>= 2.5,
                            '2,5% or more', 'less than 2.5%'))
@@ -203,7 +195,7 @@ LATAM <- LATAM %>%
                        'pinker', 'less pink'))
 
 
-#ranking de los paises que mas aportan a la economica desde las industrias creativas 
+# ranking de los paises que mas aportan a la economica desde las industrias creativas 
 LATAM %>%
   arrange(desc(LATAM$`Creat Ind % GDP`))
 
@@ -221,6 +213,8 @@ ggplot(TopcreativeInd, aes(x=LATAM$`Internet penetration % population`,
                            y=LATAM$`Services % GDP`, size=LATAM$`GDP PC`))+
   geom_point()+
   facet_wrap(~LATAM$Country)
+
+
 
 
 
