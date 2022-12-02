@@ -219,3 +219,31 @@ ggplot(TopcreativeInd, aes(x=LATAM$`Internet penetration % population`,
 
 
 
+#ADD MAP FOR EASY UNDERESTANDING 
+library(highcharter)
+library(dplyr)
+library(maps)
+
+dat <- iso3166
+head(dat)
+
+dat <- rename(dat, "iso-a3" = a3)
+head(dat)
+
+countries <- c("ARG", "BOL", "BRA", "CHL", "COL", "COS", "ECU", "GUA", "MEX", "NIC", "PAN", "PARA", "PER", "URU")
+
+dat$visited <- ifelse(dat$`iso-a3` %in% countries, 1, 0)
+head(dat)
+
+hcmap(
+  map = "custom/world-highres3", # high resolution world map
+  data = dat, # name of dataset
+  joinBy = "iso-a3",
+  value = "visited",
+  showInLegend = FALSE, # hide legend
+  nullColor = "#DADADA",
+  download_map_data = TRUE
+) %>%
+  hc_mapNavigation(enabled = FALSE) %>%
+  hc_legend("none") %>%
+  hc_title(text = "World map") # title
