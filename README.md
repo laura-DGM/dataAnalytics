@@ -6,12 +6,11 @@ I performed exploratory data analysis, built regression models, and made recomme
 
 By displaying my technical and business skills through these projects, I am confident in my ability to be a successful Data Analyst.
 
-
+---------------------------------------
 PYTHON
-
+---------------------------------------
 R 
-
+---------------------------------------
 MACHINE LEARNING 
-
-
+---------------------------------------
 ALGORITHM
