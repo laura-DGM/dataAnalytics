@@ -14,3 +14,16 @@ R
 MACHINE LEARNING 
 ---------------------------------------
 ALGORITHM
+
+# projects
+- airbnb
+---------------------------------------
+![Image text](https://www.javierreina.com/content/images/2022/12/airbnbSydney.png)
+
+- Open an Office in Latin America
+---------------------------------------
+![Image text](https://www.javierreina.com/content/images/2022/12/Green-and-Gray-Simple-Informational-Infographic-1.png)
+
+- tinder
+---------------------------------------
+![Image text](https://www.javierreina.com/content/images/2022/12/Informational-Data-Infographic-1.png)
